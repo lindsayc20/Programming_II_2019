@@ -71,7 +71,7 @@ key = "RENARD THE TORTURER" # "Save big money at Renard's" -Nicky Lerner
 lower_bound = 0
 upper_bound = len(villain_list) - 1
 found = False
-loops = 0 # counts the number of tries it too to find things
+loops = 0 # counts the number of tries it took to find things
 # with 2^7 loops, you can search 2^7 items in just 7 tries
 
 
@@ -92,3 +92,27 @@ else:
 
 # go here now: http://programarcadegames.com/index.php?chapter=lab_spell_check
 # this project is due at some random nebulous point in the future like all of our assignments
+
+import re
+def split_line(line):
+    return re.findall('[A-Za-z]+(?:\'[A-Za-z]+)?', line)
+
+
+villains = open("data/villains.txt")
+
+for villain in villains:
+    # print(villain.strip())
+    words = split_line(villain.strip())
+    for word in words:
+        print(word)
+
+def linear_search(key, dictionary):
+    i = 0
+    while i == (len(villains) - 1) and key!= villains[i]:
+        i += 1
+
+    if i < len(villains):
+        print("Found", key, "at position", i)
+    else:
+        print("Could not find", key)
+
