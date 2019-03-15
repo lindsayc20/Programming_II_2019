@@ -46,3 +46,28 @@ for key_pos in range(1, len(number_list)):
     number_list[scan_pos + 1] = key_val
 
 print(number_list)
+
+# Sorting using sort, sorted, and lambda functions.
+my_list = [5, 2, 8, 1, 7, 3]
+my_list.sort()  # sort in place using sort method
+my_list = sorted(my_list) # sorted function
+print(my_list)
+
+my_list = [[5, 2], [8, 1], [7, 3]]
+my_list.sort()
+print(my_list)
+
+# Sort and sorted take a function as a parameter
+# Use a lambda function
+# Lambda parameters: returned value
+square = lambda x: x ** 2
+print(square)
+print(square(9))
+
+product = lambda x, y: x * y
+print(product(7, 8))
+
+# Sort/sorted WITH a lambda function
+my_list = [[5, 2], [8, 1], [7, 3]]
+my_list.sort(key= lambda x: x[1])
+print(my_list)

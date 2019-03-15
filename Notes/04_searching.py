@@ -115,4 +115,3 @@ def linear_search(key, dictionary):
         print("Found", key, "at position", i)
     else:
         print("Could not find", key)
-
