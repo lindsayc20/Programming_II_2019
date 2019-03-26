@@ -47,27 +47,50 @@ for key_pos in range(1, len(number_list)):
 
 print(number_list)
 
-# Sorting using sort, sorted, and lambda functions.
-my_list = [5, 2, 8, 1, 7, 3]
-my_list.sort()  # sort in place using sort method
-my_list = sorted(my_list) # sorted function
-print(my_list)
+# Sorting in real life with Python
+rand_list = [random.randrange(1, 100) for x in range(100)]
+print(rand_list)
 
-my_list = [[5, 2], [8, 1], [7, 3]]
-my_list.sort()
-print(my_list)
+# sort method (sorts in place; changes list directly)
+start_time = time.perf_counter()
+rand_list.sort()
+print(rand_list)
+print("Total time", time.perf_counter() - start_time)
 
-# Sort and sorted take a function as a parameter
-# Use a lambda function
-# Lambda parameters: returned value
-square = lambda x: x ** 2
-print(square)
-print(square(9))
 
-product = lambda x, y: x * y
-print(product(7, 8))
+# sorted function (returns a sorted list)
+rand_list = [random.randrange(1, 100) for x in range(100)]
+print(rand_list)
 
-# Sort/sorted WITH a lambda function
-my_list = [[5, 2], [8, 1], [7, 3]]
-my_list.sort(key= lambda x: x[1])
-print(my_list)
+rand_list2 = sorted(rand_list)  # capture the returned list
+print(rand_list2)
+
+
+#  optional parameters
+print("Hello", end="")  # end="" is an optional parameter that has a default value of "\n"
+print("World")
+
+def hello(name, time="1:00PM"):
+    print("Hello", name, "it is now", time)
+
+hello("Karen", time="2:00PM")
+
+
+# Lambda Function (anonymous function on a single line)
+double_me = lambda x: 2 * x  # lambda parameter: return
+print(double_me(10))
+
+
+# Sorted function using a lambda function
+# optional key parameter is what you are using to sort the list.
+my_list = ["Abel", "evan", "Zed", "Piper", "len", "Jenny", "Kip"]
+my_sort = sorted(my_list, key=lambda x: x.upper())
+print(my_sort)
+
+my_list.append("Alex")
+my_sort = sorted(my_list, key=lambda x: len(x))
+print(my_sort)
+
+my_list = [["Abel", 8], ["evan", 10], ["Zed", 11], ["Piper", 17], ["len", 16], ["Jenny", 28], ["Kip", 80]]
+my_sort = sorted(my_list, key=lambda x: x[1])
+print(my_sort)
