@@ -1,0 +1,25 @@
+/* comment in css */
+
+p {
+    background-color: red;
+}
+
+ol {
+    color: red;
+}
+
+li {
+    border: 2px solid black;
+}
+
+#para3 {
+    color: blue;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+ol li.bold {
+    color: yellow;
+}
