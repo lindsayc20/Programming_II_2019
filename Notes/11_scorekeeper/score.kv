@@ -1,0 +1,70 @@
+<CustLabel@Label>
+    font_size: 40
+
+<CustButton@Button>:
+    font_size: 70
+
+<CustBoxLayout@BoxLayout>:
+    orientation: "horizontal"
+    size_hint_y: 1
+
+<ScoreLayout>:
+    # the root widget (box layout)
+    id: score
+    home: home
+    away: away
+    orientation: "vertical"
+    canvas:
+        Color:
+            rgb: (1, 1, 1)
+        Rectangle:
+            pos: self.x, self.y
+            size: self.width, self.height
+    Label:
+        text: "Scorekeeper App"
+        font_size: 50
+        size_hint_y: 2
+        color: 0, 0, 0, 1
+
+    CustBoxLayout:
+        CustLabel:
+            text: "HOME"
+            color: 0, 0, 0, 1
+            canvas:
+                Color:
+                    rgba: 0, 0, 0, 1
+                Line:
+                    width: 3
+                    rectangle: self.x, self.y, self.width, self.height
+        CustLabel:
+            text: "AWAY"
+            color: 0, 0, 0, 1
+
+
+    CustBoxLayout:
+        CustLabel:
+            id: home
+            text: "0"
+            color: 0, 0, 0, 1
+        CustLabel:
+            id: away
+            text: "0"
+            color: 0, 0, 0, 1
+
+    CustBoxLayout:
+        CustButton:
+            text: "-"
+            on_press: score.change_score(home, -1)
+            color: 0, 0, 0, 1
+        CustButton:
+            text: "+"
+            on_press: score.change_score(home, 1)
+            color: 0, 0, 0, 1
+        CustButton:
+            text: "-"
+            on_press: score.change_score(away, -1)
+            color: 0, 0, 0, 1
+        CustButton:
+            text: "+"
+            on_press: score.change_score(away, 1)
+            color: 0, 0, 0, 1

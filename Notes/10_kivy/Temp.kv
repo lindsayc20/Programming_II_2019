@@ -1,0 +1,47 @@
+<TempLayout>:
+    orientation: "vertical"
+    id: calculator
+    temp: _temp
+    answer: _answer
+    Label:
+        background_normal: ""
+        canvas:
+            Color:
+                rgba: [1, 1, 0, 1]
+            Rectangle:
+                pos: self.x, self.y
+                size: self.width, self.height
+        text: "Temperature conversion"
+        font_size: 40
+        color: [1, 1, 1, 0.75] #rgba
+        # font_name: "cmr10"
+
+
+    BoxLayout:
+        orientation: "horizontal"
+        Label:
+            text: "Temperature:"
+            size_hint_x: 0.5
+        TextInput:
+            id: _temp
+            font_size: 40
+            input_filter: "float"   # mask to prevent letters
+            size_hint_x: 0.75
+    BoxLayout:
+        Button:
+            text: "Convert to Fahrenheit"
+            font_size: 30
+            spacing: 10
+            on_press: root.f_conversion()
+        Button:
+            text: "Convert to Celsius"
+            font_size: 30
+            spacing: 10
+            on_press: root.c_conversion()
+    BoxLayout:
+        size_hint_y: 1
+        Label:
+            text: "Answer:"
+        Label:
+            text: "Converted Temp"
+            id: _answer
