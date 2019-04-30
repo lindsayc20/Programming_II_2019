@@ -1,0 +1,33 @@
+<CustLabel@Label>:
+    color: 1, 1, 1, 1
+
+<DemoLayout>:
+    orientation: "vertical"
+    padding: 10
+    spacing: 10
+    switch_text: switch_text
+    slider: slider
+    slider_value: slider_value
+
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_x: 0.5
+        Label:
+            id: switch_text
+            text: str(my_switch.active)   # true or false
+        Switch:
+            id: my_switch
+            on_active: root.turn_on_lights(self.active)
+
+    BoxLayout:
+        orientation: "horizontal"
+        Label:
+            id: slider_value
+            text: "{:.2f}".format(slider.value)
+        Slider:
+            id: slider
+            min: 0
+            max: 1
+            step: 0.01    # goes up by 1
+            value: 0    # starts at value of 0
+            slider_value: root.color_slide(self.value)
