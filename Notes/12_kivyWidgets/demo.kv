@@ -31,3 +31,64 @@
             step: 0.01    # goes up by 1
             value: 0    # starts at value of 0
             slider_value: root.color_slide(self.value)
+
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_y: None
+
+        Label:
+            text: spin.text
+        Spinner:
+            id: spin
+            text: "First"
+            values: ["First", "Second", "Third", "Fourth"]
+            on_text: root.spinner_clicked(self.text)
+
+    BoxLayout:
+        orientation: "horizontal"
+
+        Label:
+            text: "I am not a robot"
+        CheckBox:
+            on_active: root.checked(self.active)
+
+    BoxLayout:
+        orientation: "horizontal"
+
+        Label:
+            text: "Choose your favorite"
+
+    BoxLayout:
+        orientation: "horizontal"
+
+        Label:
+            text: "Cake"
+        CheckBox:
+            group: "dessert"
+
+        Label:
+            text: "Ice Cream"
+        CheckBox:
+            group: "dessert"
+
+        Label:
+            text: "Pie"
+        CheckBox:
+            group: "dessert"
+
+    BoxLayout:
+        orientation: "horizontal"
+
+        TabbedPanel:
+            TabbedPanelItem:
+                text: "first tab"
+                Label:
+                    text: "Content of my first tab"
+            TabbedPanelItem:
+                text: "second tab"
+                Label:
+                    text: "Content of my second tab"
+            TabbedPanelItem:
+                text: "third tab"
+                Label:
+                    text: "Content of my third tab"

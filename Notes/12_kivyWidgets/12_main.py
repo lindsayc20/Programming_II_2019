@@ -3,6 +3,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.core.window import Window
 
 Window.size = (400, 600)
+Window.clearcolor = (1, 1, 1, 1)
 
 class DemoApp(App):
     def build(self):
@@ -18,6 +19,10 @@ class DemoLayout(BoxLayout):
             self.switch_text.color = (1, 1, 1, 1)
     def color_slide(self, value):
         self.slider_value.color = (value, value, value, 1)
+    def spinner_clicked(self, text):
+        print(text)
+    def checked(self, active):
+        print(active)
 
 if __name__ == "__main__":
     demo = DemoApp()
